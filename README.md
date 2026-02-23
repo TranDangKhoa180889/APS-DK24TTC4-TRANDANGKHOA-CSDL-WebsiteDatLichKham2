@@ -11,7 +11,7 @@ Website đặt lịch khám bệnh trực tuyến – sử dụng ASP.NET MVC v�
 
 ---
 
-## Giai đoạn 1: Khởi tạo dự án
+## GIAI ĐOẠN 1: KHỞI TẠO DỰ ÁN
 - Tạo project ASP.NET MVC
 - Thiết kế giao diện cơ bản
 - Xây dựng cấu trúc thư mục
@@ -39,7 +39,7 @@ Website đặt lịch khám bệnh trực tuyến – sử dụng ASP.NET MVC v�
 
 - Kết nối CSDL SQL Server
 - Chạy thử thành công trên localhost
-## Giai đoạn 2-2: Quản lý bác sĩ
+## GIAI ĐOẠN 3: QUAN RLÝ BÁC SĨ
 ### Các chức năng đã hoàn thành:
 - Thiết kế bảng:
   - Users
@@ -55,9 +55,8 @@ Website đặt lịch khám bệnh trực tuyến – sử dụng ASP.NET MVC v�
 
 ---
 
-## Giai đoạn 3: Quản lý lịch khám bệnh
+## GIAI ĐOẠN 4: QUẢN LÝ LỊCH KHÁM BỆNH
 
-Các chức năng đã hoàn thành:
 
 - Thiết kế bảng LichKham
 - Thiết lập khóa ngoại:

@@ -1,0 +1,46 @@
+﻿@model WebDatLichKham.Models.AppointmentModel
+
+<div class="container mt-4">
+
+    <h2 class="text-success mb-4">➕ THÊM LỊCH KHÁM</h2>
+
+    <form asp-action="Add" method="post" class="card p-4 shadow">
+
+        <div class="mb-3">
+            <label class="form-label">Mã bác sĩ</label>
+            <input asp-for="DoctorId" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Họ tên</label>
+            <input asp-for="FullName" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Chuyên khoa</label>
+            <input asp-for="Specialty" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Điện thoại</label>
+            <input asp-for="Phone" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Trạng thái</label>
+            <input asp-for="TrangThai" class="form-control" />
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <a asp-action="Index" class="btn btn-secondary">
+                ⬅ Quay lại
+            </a>
+
+            <button type="submit" class="btn btn-success">
+                💾 Thêm mới
+            </button>
+        </div>
+
+    </form>
+
+</div>

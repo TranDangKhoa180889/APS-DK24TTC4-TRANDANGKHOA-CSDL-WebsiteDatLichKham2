@@ -1,0 +1,24 @@
+﻿<p>Số bác sĩ: @Model.Count</p>
+@model List<WebDatLichKham.Models.DoctorModel>
+
+<h2>Danh sách bác sĩ</h2>
+
+<table border="1" cellpadding="5">
+    <tr>
+        <th>ID</th>
+        <th>Họ tên</th>
+        <th>Chuyên khoa</th>
+        <th>Điện thoại</th>
+    </tr>
+
+    @foreach (var d in Model)
+    {
+        <tr>
+            <td>@d.DoctorId</td>
+            <td>@d.FullName</td>
+            <td>@d.Specialty</td>
+            <td>@d.Phone</td>
+        </tr>
+    }
+
+</table>

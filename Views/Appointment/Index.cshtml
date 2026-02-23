@@ -1,0 +1,55 @@
+﻿@model List<WebDatLichKham.Models.AppointmentModel>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="text-primary fw-bold">📋 DANH SÁCH LỊCH KHÁM</h2>
+    <a asp-action="Add" class="btn btn-success shadow">
+        ➕ Thêm mới
+    </a>
+</div>
+
+@if (Model.Count == 0)
+{
+    <div class="alert alert-warning text-center">
+        Chưa có lịch khám nào!
+    </div>
+}
+else
+{
+    <table class="table table-hover table-bordered shadow">
+        <thead class="table-primary text-center">
+            <tr>
+                <th>ID</th>
+                <th>Bác sĩ</th>
+                <th>Họ tên</th>
+                <th>Chuyên khoa</th>
+                <th>Điện thoại</th>
+                <th>Trạng thái</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.DoctorId</td>
+                    <td>@item.FullName</td>
+                    <td>@item.Specialty</td>
+                    <td>@item.Phone</td>
+                    <td>
+                        <span class="badge bg-info">@item.TrangThai</span>
+                    </td>
+                    <td class="text-center">
+                        <a asp-action="Edit"
+                           asp-route-id="@item.Id"
+                           class="btn btn-warning btn-sm">
+                            ✏ Sửa
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+

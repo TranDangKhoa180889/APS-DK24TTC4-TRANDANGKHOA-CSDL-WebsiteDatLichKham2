@@ -39,7 +39,7 @@ Website đặt lịch khám bệnh trực tuyến – sử dụng ASP.NET MVC v�
 
 - Kết nối CSDL SQL Server
 - Chạy thử thành công trên localhost
-## GIAI ĐOẠN 3: QUAN RLÝ BÁC SĨ
+## GIAI ĐOẠN 3: QUẢN LÝ BÁC SĨ
 ### Các chức năng đã hoàn thành:
 - Thiết kế bảng:
   - Users

@@ -1,46 +1,29 @@
-﻿@model WebDatLichKham.Models.AppointmentModel
+﻿@model WebDatLichKham.Models.Appointment
 
-<div class="container mt-4">
+<h2>Đặt lịch</h2>
 
-    <h2 class="text-success mb-4">➕ THÊM LỊCH KHÁM</h2>
+<form asp-action="Add" method="post">
+    <div class="form-group">
+        <label>Tên bệnh nhân</label>
+        <input asp-for="PatientName" class="form-control" />
+    </div>
 
-    <form asp-action="Add" method="post" class="card p-4 shadow">
+    <div class="form-group">
+        <label>Ngày hẹn</label>
+        <input asp-for="AppointmentDate" type="date" class="form-control" />
+    </div>
 
-        <div class="mb-3">
-            <label class="form-label">Mã bác sĩ</label>
-            <input asp-for="DoctorId" class="form-control" />
-        </div>
+    <div class="form-group">
+        <label>Bác sĩ</label>
+        <select asp-for="DoctorId" class="form-control">
+            @foreach (var doc in ViewBag.Doctors)
+            {
+                <option value="@doc.Id">@doc.DoctorName</option>
+            }
+        </select>
+    </div>
 
-        <div class="mb-3">
-            <label class="form-label">Họ tên</label>
-            <input asp-for="FullName" class="form-control" />
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Chuyên khoa</label>
-            <input asp-for="Specialty" class="form-control" />
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Điện thoại</label>
-            <input asp-for="Phone" class="form-control" />
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Trạng thái</label>
-            <input asp-for="TrangThai" class="form-control" />
-        </div>
-
-        <div class="d-flex justify-content-between">
-            <a asp-action="Index" class="btn btn-secondary">
-                ⬅ Quay lại
-            </a>
-
-            <button type="submit" class="btn btn-success">
-                💾 Thêm mới
-            </button>
-        </div>
-
-    </form>
-
-</div>
+    <br />
+    <button type="submit" class="btn btn-success">Lưu</button>
+    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+</form>

@@ -1,0 +1,31 @@
+﻿@model WebDatLichKham.Models.DoctorModel?
+
+@{
+    ViewData["Title"] = "Xóa bác sĩ";
+}
+
+<h2>Xóa bác sĩ</h2>
+
+<h4>Bạn có chắc muốn xóa bác sĩ này?</h4>
+
+@if (Model != null)
+{
+    <div>
+        <dl class="row">
+            <dt class="col-sm-2">Tên bác sĩ</dt>
+            <dd class="col-sm-10">@Model.DoctorName</dd>
+
+            <dt class="col-sm-2">Chuyên khoa</dt>
+            <dd class="col-sm-10">@Model.Specialty</dd>
+
+            <dt class="col-sm-2">Số điện thoại</dt>
+            <dd class="col-sm-10">@Model.Phone</dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger">Xóa</button>
+            <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+        </form>
+    </div>
+}

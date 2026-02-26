@@ -10,7 +10,7 @@ namespace WebDatLichKham.Data
         {
         }
 
-        public DbSet<AppointmentModel> Appointments { get; set; }
         public DbSet<DoctorModel> Doctors { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
     }
 }

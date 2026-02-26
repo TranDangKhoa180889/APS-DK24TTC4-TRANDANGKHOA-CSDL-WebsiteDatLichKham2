@@ -9,29 +9,26 @@
 <h4>Bạn có chắc muốn xóa lịch hẹn này không?</h4>
 <hr />
 
-@if (Model != null)
-{
-    <dl class="row">
-        <dt class="col-sm-2">Bệnh nhân</dt>
-        <dd class="col-sm-10">@Model.PatientName</dd>
+<dl class="row">
+    <dt class="col-sm-2">Bệnh nhân</dt>
+    <dd class="col-sm-10">@Model.PatientName</dd>
 
-        <dt class="col-sm-2">Bác sĩ</dt>
-        <dd class="col-sm-10">@Model.Doctor?.Name</dd>
+    <dt class="col-sm-2">Bác sĩ</dt>
+    <dd class="col-sm-10">@Model.Doctor?.DoctorName</dd>
 
-        <dt class="col-sm-2">Ngày khám</dt>
-        <dd class="col-sm-10">@Model.AppointmentDate.ToString("dd/MM/yyyy")</dd>
+    <dt class="col-sm-2">Ngày khám</dt>
+    <dd class="col-sm-10">
+        @Model.AppointmentDate.ToString("dd/MM/yyyy")
+    </dd>
 
-        <dt class="col-sm-2">Giờ khám</dt>
-        <dd class="col-sm-10">@Model.AppointmentTime</dd>
-    </dl>
+    <dt class="col-sm-2">Giờ khám</dt>
+    <dd class="col-sm-10">@Model.AppointmentTime</dd>
+</dl>
 
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <button type="submit" class="btn btn-danger">Xóa</button>
-        <a asp-action="Index" class="btn btn-secondary">Hủy</a>
-    </form>
-}
-else
-{
-    <p>Không tìm thấy dữ liệu.</p>
-}
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    @Html.AntiForgeryToken()
+
+    <button type="submit" class="btn btn-danger">Xóa</button>
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>

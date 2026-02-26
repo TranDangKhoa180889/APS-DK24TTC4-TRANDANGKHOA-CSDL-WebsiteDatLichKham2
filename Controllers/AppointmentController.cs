@@ -14,32 +14,24 @@ namespace WebDatLichKham.Controllers
             _context = context;
         }
 
-        // ==========================
-        // DANH SÁCH
-        // ==========================
+        // ================= DANH SÁCH =================
         public IActionResult Index()
         {
-            var data = _context.Appointments
+            var list = _context.Appointments
                                .Include(a => a.Doctor)
                                .ToList();
+            return View(list);
+                }
 
-            return View(data);
-        }
-
-        // ==========================
-        // THÊM (GET)
-        // ==========================
+        // ================= THÊM (GET) =================
         public IActionResult Add()
         {
             ViewBag.Doctors = _context.Doctors.ToList();
             return View();
         }
 
-        // ==========================
-        // THÊM (POST)
-        // ==========================
+        // ================= THÊM (POST) =================
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Add(Appointment appointment)
         {
             if (ModelState.IsValid)
@@ -53,61 +45,65 @@ namespace WebDatLichKham.Controllers
             return View(appointment);
         }
 
-        // ==========================
-        // SỬA (GET)
-        // ==========================
+        // ================= SỬA =================
+        // GET: Edit
         public IActionResult Edit(int id)
         {
-            var item = _context.Appointments.Find(id);
-            if (item == null) return NotFound();
+            var appointment = _context.Appointments.Find(id);
 
-            ViewBag.Doctors = _context.Doctors.ToList();
-            return View(item);
-        }
-
-        // ==========================
-        // SỬA (POST)
-        // ==========================
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Edit(Appointment appointment)
-        {
-            if (ModelState.IsValid)
+            if (appointment == null)
             {
-                _context.Appointments.Update(appointment);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
+                return NotFound();
             }
 
             ViewBag.Doctors = _context.Doctors.ToList();
             return View(appointment);
         }
 
-        // ==========================
-        // XOÁ (GET)
-        // ==========================
-        public IActionResult Delete(int id)
+
+        // POST: Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Appointment model)
         {
-            var item = _context.Appointments
-                               .Include(a => a.Doctor)
-                               .FirstOrDefault(a => a.Id == id);
+            if (ModelState.IsValid)
+            {
+                _context.Appointments.Update(model);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
-            if (item == null) return NotFound();
-
-            return View(item);
+            ViewBag.Doctors = _context.Doctors.ToList();
+            return View(model);
         }
 
-        // ==========================
-        // XOÁ (POST)
-        // ==========================
+        // ================= XÓA =================
+        // GET: Delete
+        public IActionResult Delete(int id)
+        {
+            var appointment = _context.Appointments
+                .Include(a => a.Doctor)
+                .FirstOrDefault(a => a.Id == id);
+
+            if (appointment == null)
+            {
+                return NotFound();
+            }
+
+            return View(appointment);
+        }
+
+
+        // POST: Delete
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            var item = _context.Appointments.Find(id);
-            if (item != null)
+            var appointment = _context.Appointments.Find(id);
+
+            if (appointment != null)
             {
-                _context.Appointments.Remove(item);
+                _context.Appointments.Remove(appointment);
                 _context.SaveChanges();
             }
 

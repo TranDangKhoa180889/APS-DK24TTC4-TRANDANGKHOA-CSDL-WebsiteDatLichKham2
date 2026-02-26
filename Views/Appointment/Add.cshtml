@@ -1,29 +1,34 @@
 ﻿@model WebDatLichKham.Models.Appointment
 
-<h2>Đặt lịch</h2>
+<h2>Thêm lịch hẹn</h2>
 
 <form asp-action="Add" method="post">
     <div class="form-group">
-        <label>Tên bệnh nhân</label>
+        <label>Bệnh nhân</label>
         <input asp-for="PatientName" class="form-control" />
     </div>
 
     <div class="form-group">
-        <label>Ngày hẹn</label>
+        <label>Ngày khám</label>
         <input asp-for="AppointmentDate" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Giờ khám</label>
+        <input asp-for="AppointmentTime" class="form-control" />
     </div>
 
     <div class="form-group">
         <label>Bác sĩ</label>
         <select asp-for="DoctorId" class="form-control">
-            @foreach (var doc in ViewBag.Doctors)
+            <option value="">-- Chọn bác sĩ --</option>
+            @foreach (var doctor in ViewBag.Doctors)
             {
-                <option value="@doc.Id">@doc.DoctorName</option>
+                <option value="@doctor.Id">@doctor.DoctorName</option>
             }
         </select>
     </div>
 
     <br />
     <button type="submit" class="btn btn-success">Lưu</button>
-    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
 </form>

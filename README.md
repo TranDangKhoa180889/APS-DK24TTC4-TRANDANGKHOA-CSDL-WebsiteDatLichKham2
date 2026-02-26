@@ -22,15 +22,16 @@ Website đặt lịch khám bệnh trực tuyến – sử dụng ASP.NET MVC v�
 
 ## Đã hoàn thành
 - Xây dựng Controller:
-  + HomeController
-  + DoctorController
   + AppointmentController
+  + DoctorController
+  + HomeController
   + LoginController
 
 - Xây dựng Model:
+  + Appointment 
   + DoctorModel
-  + AppointmentModel
-
+  + ErrorViewModel
+  
 - Xây dựng View:
   + Trang chủ
   + Danh sách bác sĩ
@@ -40,11 +41,7 @@ Website đặt lịch khám bệnh trực tuyến – sử dụng ASP.NET MVC v�
 - Kết nối CSDL SQL Server
 - Chạy thử thành công trên localhost
 ## GIAI ĐOẠN 3: QUẢN LÝ BÁC SĨ
-### Các chức năng đã hoàn thành:
-- Thiết kế bảng:
-  - Users
-  - Doctor_Info
-  - Specialties
+
 - Tạo **SQL VIEW** lấy danh sách bác sĩ
 - Hiển thị danh sách bác sĩ trên website
 - Kết nối dữ liệu từ SQL Server
@@ -68,9 +65,8 @@ Website đặt lịch khám bệnh trực tuyến – sử dụng ASP.NET MVC v�
 - Đưa file WebsiteDatLichKhamBenh.sql lên GitHub
 
 ## Cơ sở dữ liệu
-- File SQL: `WebsiteDatLichKhamBenh.sql`
+- File SQL: `WebDatLichKhamDB.sql`
 - Có sử dụng VIEW để truy vấn danh sách bác sĩ
-
 ---
 
 ## Sinh viên thực hiện

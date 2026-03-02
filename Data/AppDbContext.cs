@@ -12,5 +12,6 @@ namespace WebDatLichKham.Data
 
         public DbSet<DoctorModel> Doctors { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

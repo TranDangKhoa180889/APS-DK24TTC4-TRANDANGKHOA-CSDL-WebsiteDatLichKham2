@@ -16,5 +16,10 @@ namespace WebDatLichKham.Controllers
             ViewBag.Username = username;
             return View();
         }
+        public IActionResult About()
+        {
+            return View();
+        }
     }
+
 }

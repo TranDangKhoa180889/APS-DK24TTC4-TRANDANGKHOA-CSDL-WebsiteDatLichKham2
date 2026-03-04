@@ -1,9 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebDatLichKham.Models
 {
+    [Index(nameof(DoctorId), nameof(AppointmentDate), nameof(AppointmentTime), IsUnique = true)]
     public class Appointment
     {
         public int Id { get; set; }
@@ -22,10 +24,12 @@ namespace WebDatLichKham.Models
         public string AppointmentTime { get; set; } = string.Empty;
 
         // KHÓA NGOẠI
+        [Required]
         [Display(Name = "Bác sĩ")]
         public int DoctorId { get; set; }
 
-        // NAVIGATION
+        // NAVIGATION PROPERTY
+        [ForeignKey("DoctorId")]
         public DoctorModel? Doctor { get; set; }
     }
 }

@@ -64,6 +64,10 @@ Website đặt lịch khám bệnh trực tuyến – sử dụng ASP.NET MVC v�
 - Xuất file CSDL SQL Server
 - Đưa file WebsiteDatLichKhamBenh.sql lên GitHub
 
+  ## GIAI ĐOẠN : QUẢN LÝ TRÙNG LỊCH KHÁM BỆNH
+  - Kiểm tra ngày, giờ có trùng lịch đã được đặt
+  - Không cho ngày < Today
+
 ## Cơ sở dữ liệu
 - File SQL: `WebDatLichKhamDB.sql`
 - Có sử dụng VIEW để truy vấn danh sách bác sĩ

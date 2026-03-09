@@ -1,4 +1,4 @@
-# Website Đặt Lịch Khám Bệnh
+# Website Đặt Lịch Khám Bệnh Ngoài giờ
 
 ## Mô tả
 Website đặt lịch khám bệnh trực tuyến – sử dụng ASP.NET MVC và SQL Server.
